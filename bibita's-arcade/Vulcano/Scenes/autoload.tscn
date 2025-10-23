@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8m8oxqklkqf3"]
+
+[ext_resource type="Script" uid="uid://dclfq8ykcp4en" path="res://Vulcano/Scripts/autoload.gd" id="1_qf80t"]
+
+[node name="Autoload" type="Node2D"]
+script = ExtResource("1_qf80t")

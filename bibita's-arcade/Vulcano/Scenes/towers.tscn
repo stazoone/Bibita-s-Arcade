@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://chf773ciutqfp"]
+
+[ext_resource type="Script" uid="uid://r1bigslm0wc0" path="res://Vulcano/Scripts/towers.gd" id="1_nethx"]
+[ext_resource type="Texture2D" uid="uid://ck7m0jdrhvjhl" path="res://Vulcano/PNGs/Tower.png" id="1_yvk3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nethx"]
+size = Vector2(67.20331, 34.25673)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfhjd"]
+size = Vector2(57.362854, 95.56565)
+
+[node name="Towers" type="Node2D"]
+position = Vector2(-7, 7)
+script = ExtResource("1_nethx")
+
+[node name="Score" type="Area2D" parent="."]
+position = Vector2(562.00006, 785.0002)
+scale = Vector2(1.7368628, -6.749286)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score"]
+position = Vector2(2.3029175, 72.76987)
+rotation = 3.1415925
+scale = Vector2(0.91222537, 1.1344264)
+shape = SubResource("RectangleShape2D_nethx")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(626.00006, 179.99998)
+scale = Vector2(1.7368628, -6.7492876)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-38.681305, 54.746513)
+scale = Vector2(1, 0.9999998)
+shape = SubResource("RectangleShape2D_dfhjd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-36.848053, -89.639114)
+scale = Vector2(1, 0.9999998)
+shape = SubResource("RectangleShape2D_dfhjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(636, 411)
+scale = Vector2(1.5351003, 3.3502722)
+texture = ExtResource("1_yvk3l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(626.00006, 179.99998)
+scale = Vector2(1.3285136, -3.5196064)
+texture = ExtResource("1_yvk3l")
+
+[connection signal="body_entered" from="Score" to="." method="_on_score_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

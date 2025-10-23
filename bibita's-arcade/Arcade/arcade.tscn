@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://b28w8oujpoero"]
+
+[ext_resource type="Texture2D" uid="uid://ca5e187b0fysd" path="res://Setttings/PNGs/settings.png" id="1_fvsqg"]
+[ext_resource type="Texture2D" uid="uid://ch41tnxjnn307" path="res://Arcade/PNGs/vulcano.png" id="2_v2gga"]
+[ext_resource type="Script" uid="uid://qp8egr2hjqr6" path="res://Arcade/vulcano_arcade.gd" id="3_0fkby"]
+[ext_resource type="Script" uid="uid://cq2amn7hckheh" path="res://Arcade/animation_player.gd" id="4_0fkby"]
+
+[sub_resource type="GDScript" id="GDScript_v2gga"]
+script/source = "extends Control
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjcbp"]
+texture = ExtResource("1_fvsqg")
+modulate_color = Color(0.61960787, 0.61960787, 0.61960787, 1)
+
+[sub_resource type="Animation" id="Animation_iy17f"]
+resource_name = "vulcano_hoverv"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_v2gga")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.825, 0.624)]
+}
+
+[sub_resource type="Animation" id="Animation_x73uf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_v2gga")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.825, 0.624)]
+}
+
+[sub_resource type="Animation" id="Animation_10f3p"]
+resource_name = "vulcano_normal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.765, 0.579)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sl0ob"]
+_data = {
+&"RESET": SubResource("Animation_x73uf"),
+&"vulcano_hover": SubResource("Animation_iy17f"),
+&"vulcano_normal": SubResource("Animation_10f3p")
+}
+
+[node name="arcade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_v2gga")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0036727, 1)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bjcbp")
+
+[node name="Vulcano" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 36.000015
+offset_top = -105.99999
+offset_right = 476.0
+offset_bottom = 576.0
+scale = Vector2(0.825, 0.624)
+pivot_offset = Vector2(220, 341)
+texture_normal = ExtResource("2_v2gga")
+script = ExtResource("3_0fkby")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vulcano"]
+libraries = {
+&"": SubResource("AnimationLibrary_sl0ob")
+}
+script = ExtResource("4_0fkby")
+
+[connection signal="mouse_entered" from="Vulcano" to="Vulcano/AnimationPlayer" method="_on_vulcano_mouse_entered"]
+[connection signal="mouse_exited" from="Vulcano" to="Vulcano/AnimationPlayer" method="_on_vulcano_mouse_exited"]

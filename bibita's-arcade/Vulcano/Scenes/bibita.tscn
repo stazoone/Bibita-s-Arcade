@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq8jbprwuwxgk"]
+
+[ext_resource type="Script" uid="uid://br8myurt12k05" path="res://Vulcano/Scripts/bibita.gd" id="1_214d0"]
+[ext_resource type="Texture2D" uid="uid://bh3hpyfbqchur" path="res://Vulcano/PNGs/Bibita.png" id="1_yd4mq"]
+
+[node name="bibita" type="CharacterBody2D"]
+position = Vector2(107, 73)
+script = ExtResource("1_214d0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(17, -5)
+scale = Vector2(0.6, 0.6)
+build_mode = 1
+polygon = PackedVector2Array(-126.66666, 68.33333, 71.66666, 61.66667, 73.33334, 46.66667, 41.66667, 33.33333, 36.66667, -18.333328, 20, -59.999996, -16.666656, -76.666664, -45, -78.33333, -65, -65, -79.99999, -36.666664, -101.66666, 8.333336, -111.66666, 28.333328, -126.66666, 35, -136.66666, 46.66667, -138.33333, 61.66667)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -5)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_yd4mq")

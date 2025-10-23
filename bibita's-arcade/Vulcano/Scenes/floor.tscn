@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://1nna2uid54sk"]
+
+[ext_resource type="Script" uid="uid://bf052qnt5e32s" path="res://Vulcano/Scripts/floor.gd" id="1_oaem8"]
+[ext_resource type="Texture2D" uid="uid://hl61bohi5sa2" path="res://Vulcano/PNGs/Floor.png" id="2_ominw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wlt5"]
+size = Vector2(1277, 20)
+
+[node name="Floor" type="Area2D"]
+script = ExtResource("1_oaem8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(624, 496)
+scale = Vector2(2.0770986, 1.0910509)
+texture = ExtResource("2_ominw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(633.5, 664)
+shape = SubResource("RectangleShape2D_0wlt5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
