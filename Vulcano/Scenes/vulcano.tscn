@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk1uyfewr2fe0"]
+
+[ext_resource type="PackedScene" uid="uid://dq8jbprwuwxgk" path="res://Vulcano/Scenes/bibita.tscn" id="1_atdfy"]
+[ext_resource type="Script" uid="uid://bjxlxs37ip17s" path="res://Vulcano/Scripts/vulcano.gd" id="1_p5yw2"]
+[ext_resource type="PackedScene" uid="uid://1nna2uid54sk" path="res://Vulcano/Scenes/floor.tscn" id="2_8p3pn"]
+[ext_resource type="Texture2D" uid="uid://da484r580appt" path="res://Vulcano/PNGs/Background.png" id="3_p5yw2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8p3pn"]
+texture = ExtResource("3_p5yw2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_atdfy"]
+font_size = 60
+font_color = Color(0.81960785, 0, 0.007843138, 1)
+
+[node name="Vulcano" type="Node2D"]
+script = ExtResource("1_p5yw2")
+
+[node name="Floor" parent="." instance=ExtResource("2_8p3pn")]
+position = Vector2(8, 40)
+
+[node name="bibita" parent="." instance=ExtResource("1_atdfy")]
+position = Vector2(154, 330)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.521
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8p3pn")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+label_settings = SubResource("LabelSettings_atdfy")
+uppercase = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

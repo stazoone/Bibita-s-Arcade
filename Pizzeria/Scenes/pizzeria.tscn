@@ -1,0 +1,173 @@
+[gd_scene load_steps=12 format=3 uid="uid://bp4tg3da816my"]
+
+[ext_resource type="Texture2D" uid="uid://bfhud1kjdayk6" path="res://Pizzeria/PNGs/background.png" id="1_cfxv3"]
+[ext_resource type="Script" uid="uid://dj4oi7odc8ihr" path="res://Pizzeria/Scripts/pizzeria.gd" id="1_dlo0f"]
+[ext_resource type="Texture2D" uid="uid://bbafp2b6gxi36" path="res://Pizzeria/PNGs/buttons/cheese.png" id="3_7ixsm"]
+[ext_resource type="Texture2D" uid="uid://c30a4dadgn1hx" path="res://Pizzeria/PNGs/pizzas/plain_pizza.png" id="3_q4pv0"]
+[ext_resource type="Texture2D" uid="uid://i610asfhknk2" path="res://Pizzeria/PNGs/buttons/rucola.png" id="4_ffvjn"]
+[ext_resource type="Texture2D" uid="uid://c4atuvk6fwisn" path="res://Pizzeria/PNGs/buttons/tomato.png" id="5_vxagt"]
+[ext_resource type="Texture2D" uid="uid://cqsxr5jmkpg57" path="res://Pizzeria/PNGs/buttons/pepperoni.png" id="6_b2qa2"]
+[ext_resource type="Texture2D" uid="uid://do8vv5dk0cihv" path="res://Pizzeria/PNGs/buttons/submit.png" id="8_b2qa2"]
+[ext_resource type="Texture2D" uid="uid://xoc488kn7ljh" path="res://Pizzeria/PNGs/buttons/trash.png" id="9_67vyf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30x0r"]
+texture = ExtResource("1_cfxv3")
+
+[sub_resource type="SystemFont" id="SystemFont_ffvjn"]
+
+[node name="Pizzeria" type="Node2D"]
+script = ExtResource("1_dlo0f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_30x0r")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -72.0
+offset_right = 24.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9411765, 0.5568628, 0.21568628, 1)
+theme_override_fonts/font = SubResource("SystemFont_ffvjn")
+theme_override_font_sizes/font_size = 25
+
+[node name="ButtonCheese" type="TextureButton" parent="CanvasLayer"]
+texture_repeat = 1
+anchors_preset = -1
+anchor_left = 0.059000004
+anchor_top = 0.95600003
+anchor_right = 0.059000004
+anchor_bottom = 0.95600003
+offset_left = 1036.48
+offset_top = -304.32
+offset_right = 2956.48
+offset_bottom = 895.68
+grow_vertical = 0
+scale = Vector2(0.03919437, 0.086468935)
+texture_normal = ExtResource("3_7ixsm")
+stretch_mode = 0
+
+[node name="ButtonRucola" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1200.0
+offset_top = -232.0
+offset_right = 1823.5518
+offset_bottom = 273.0
+grow_vertical = 0
+scale = Vector2(0.12350264, -0.1977297)
+texture_normal = ExtResource("4_ffvjn")
+stretch_mode = 0
+
+[node name="ButtonTomato" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1104.0
+offset_top = -215.99994
+offset_right = 1593.0
+offset_bottom = 295.00006
+grow_vertical = 0
+scale = Vector2(0.16282368, 0.21520858)
+texture_normal = ExtResource("5_vxagt")
+stretch_mode = 0
+
+[node name="ButtonPepperoni" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1192.0
+offset_top = -216.0
+offset_right = 1730.5454
+offset_bottom = 379.42017
+grow_vertical = 0
+scale = Vector2(0.1634031, 0.1895278)
+texture_normal = ExtResource("6_b2qa2")
+stretch_mode = 0
+
+[node name="PlayerPizza" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.544
+anchor_right = 0.425
+anchor_bottom = 0.544
+offset_left = -424.0
+offset_top = -271.68002
+offset_right = 496.0
+offset_bottom = 264.31998
+texture = ExtResource("3_q4pv0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TargetPizza" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -336.0
+offset_top = -8.0
+offset_right = 104.0
+offset_bottom = 296.0
+grow_horizontal = 0
+texture = ExtResource("3_q4pv0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TargetPizzaLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -120.0
+offset_right = -18.0
+offset_bottom = -78.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9411765, 0.5568628, 0.21568628, 1)
+theme_override_font_sizes/font_size = 30
+text = "Target pizza"
+
+[node name="ButtonSubmit" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -168.0
+offset_top = -96.0
+offset_right = 182.0
+offset_bottom = 154.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.4149575, 0.32744426)
+texture_normal = ExtResource("8_b2qa2")
+stretch_mode = 0
+
+[node name="ButtonTrash" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -208.0
+offset_right = 274.0
+offset_bottom = 192.0
+grow_vertical = 0
+scale = Vector2(0.4419231, 0.45326257)
+texture_normal = ExtResource("9_67vyf")
+stretch_mode = 0

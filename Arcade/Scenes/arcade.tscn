@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://b28w8oujpoero"]
+
+[ext_resource type="Texture2D" uid="uid://ca5e187b0fysd" path="res://Setttings/PNGs/settings.png" id="1_s7h14"]
+[ext_resource type="Texture2D" uid="uid://ch41tnxjnn307" path="res://Arcade/PNGs/vulcano.png" id="2_4eg35"]
+[ext_resource type="Script" uid="uid://qp8egr2hjqr6" path="res://Arcade/Scripts/vulcano_arcade.gd" id="3_lla1w"]
+[ext_resource type="Script" uid="uid://4ntwmd1j8ll2" path="res://Arcade/Scripts/pizzeria_arcade.gd" id="5_4eg35"]
+[ext_resource type="Texture2D" uid="uid://dxwhf8w111uql" path="res://Arcade/PNGs/pizzeria.png" id="5_uk5oe"]
+[ext_resource type="Texture2D" uid="uid://bvuiqk0hc8qh1" path="res://Arcade/PNGs/calinmats_house.png" id="6_lla1w"]
+
+[sub_resource type="GDScript" id="GDScript_v2gga"]
+script/source = "extends Control
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjcbp"]
+texture = ExtResource("1_s7h14")
+modulate_color = Color(0.61960787, 0.61960787, 0.61960787, 1)
+
+[node name="arcade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_v2gga")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0036727, 1)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bjcbp")
+
+[node name="Vulcano" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 196.0
+offset_right = 741.0
+offset_bottom = 878.0
+scale = Vector2(0.825, 0.624)
+pivot_offset = Vector2(220, 341)
+texture_normal = ExtResource("2_4eg35")
+script = ExtResource("3_lla1w")
+
+[node name="Pizzeria" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 798.00006
+offset_top = -154.0
+offset_right = 1355.0
+offset_bottom = 528.0
+rotation = 0.11319921
+scale = Vector2(0.825, 0.624)
+pivot_offset = Vector2(220, 341)
+texture_normal = ExtResource("5_uk5oe")
+stretch_mode = 0
+script = ExtResource("5_4eg35")
+
+[node name="Calinmat\'s House" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -13.000005
+offset_top = -105.000015
+offset_right = 364.0
+offset_bottom = 620.88086
+rotation = -0.057619803
+scale = Vector2(0.7474297, 0.6498853)
+pivot_offset = Vector2(220, 341)
+texture_normal = ExtResource("6_lla1w")
+stretch_mode = 0
+script = ExtResource("5_4eg35")
