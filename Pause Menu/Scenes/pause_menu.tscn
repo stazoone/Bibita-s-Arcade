@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdag4ja6vs7ql"]
+
+[ext_resource type="Script" uid="uid://h0btfgxuc4ah" path="res://Pause Menu/Scripts/pause_menu.gd" id="1_1mws3"]
+[ext_resource type="Texture2D" uid="uid://cxxllkysvocre" path="res://Pause Menu/PNGs/background.png" id="2_40ppg"]
+[ext_resource type="Texture2D" uid="uid://chk26p0v06sga" path="res://Pause Menu/PNGs/resume.png" id="2_wq74y"]
+[ext_resource type="Texture2D" uid="uid://bwh7xp3qb5yxo" path="res://Pause Menu/PNGs/mainmenu.png" id="4_6y64p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_40ppg"]
+texture = ExtResource("2_40ppg")
+
+[node name="PauseMenu" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_1mws3")
+
+[node name="BlurOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.40784314)
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.9249798, 1.8186185)
+theme_override_styles/panel = SubResource("StyleBoxTexture_40ppg")
+
+[node name="ButtonResume" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = -64.00001
+offset_top = -40.0
+offset_right = 286.0
+offset_bottom = 210.0
+scale = Vector2(0.3484545, 0.20626047)
+texture_normal = ExtResource("2_wq74y")
+stretch_mode = 0
+
+[node name="ButtonMainMenu" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = 286.0
+offset_bottom = 266.0
+scale = Vector2(0.36608598, 0.22285548)
+texture_normal = ExtResource("4_6y64p")
+stretch_mode = 0

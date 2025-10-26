@@ -7,7 +7,7 @@ func _ready() -> void:
 	Autoload.score = 0
 
 func _process(delta: float) -> void:
-	$CanvasLayer/Control/Label.text = str(Autoload.score)
+	$ScoreLayer/Label.text = str(Autoload.score)
 
 func _on_timer_timeout() -> void:
 	var towersInstance = towers.instantiate()

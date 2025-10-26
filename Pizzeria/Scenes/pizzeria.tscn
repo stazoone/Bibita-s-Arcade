@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bp4tg3da816my"]
+[gd_scene load_steps=14 format=3 uid="uid://bp4tg3da816my"]
 
 [ext_resource type="Texture2D" uid="uid://bfhud1kjdayk6" path="res://Pizzeria/PNGs/background.png" id="1_cfxv3"]
 [ext_resource type="Script" uid="uid://dj4oi7odc8ihr" path="res://Pizzeria/Scripts/pizzeria.gd" id="1_dlo0f"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cqsxr5jmkpg57" path="res://Pizzeria/PNGs/buttons/pepperoni.png" id="6_b2qa2"]
 [ext_resource type="Texture2D" uid="uid://do8vv5dk0cihv" path="res://Pizzeria/PNGs/buttons/submit.png" id="8_b2qa2"]
 [ext_resource type="Texture2D" uid="uid://xoc488kn7ljh" path="res://Pizzeria/PNGs/buttons/trash.png" id="9_67vyf"]
+[ext_resource type="PackedScene" uid="uid://bdag4ja6vs7ql" path="res://Pause Menu/Scenes/pause_menu.tscn" id="10_67vyf"]
+[ext_resource type="AudioStream" uid="uid://cacy443mmb0uc" path="res://Pizzeria/Music/pizzeria.mp3" id="11_a336s"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_30x0r"]
 texture = ExtResource("1_cfxv3")
@@ -171,3 +173,10 @@ grow_vertical = 0
 scale = Vector2(0.4419231, 0.45326257)
 texture_normal = ExtResource("9_67vyf")
 stretch_mode = 0
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_67vyf")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_a336s")
+volume_db = -15.146
+autoplay = true
