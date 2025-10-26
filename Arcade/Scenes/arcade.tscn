@@ -1,18 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://b28w8oujpoero"]
+[gd_scene load_steps=12 format=3 uid="uid://b28w8oujpoero"]
 
-[ext_resource type="Texture2D" uid="uid://ca5e187b0fysd" path="res://Setttings/PNGs/settings.png" id="1_s7h14"]
+[ext_resource type="Texture2D" uid="uid://cq1x6ork4lckv" path="res://Arcade/PNGs/arcade.png" id="1_sq3nv"]
 [ext_resource type="Texture2D" uid="uid://ch41tnxjnn307" path="res://Arcade/PNGs/vulcano.png" id="2_4eg35"]
 [ext_resource type="Script" uid="uid://qp8egr2hjqr6" path="res://Arcade/Scripts/vulcano_arcade.gd" id="3_lla1w"]
-[ext_resource type="Script" uid="uid://4ntwmd1j8ll2" path="res://Arcade/Scripts/pizzeria_arcade.gd" id="5_4eg35"]
+[ext_resource type="Script" uid="uid://cdnnru2txdiqs" path="res://Arcade/Scripts/pizzeria_arcade.gd" id="5_4eg35"]
 [ext_resource type="Texture2D" uid="uid://dxwhf8w111uql" path="res://Arcade/PNGs/pizzeria.png" id="5_uk5oe"]
 [ext_resource type="Texture2D" uid="uid://bvuiqk0hc8qh1" path="res://Arcade/PNGs/calinmats_house.png" id="6_lla1w"]
+[ext_resource type="Script" uid="uid://cllwvcgdovr7l" path="res://Arcade/Scripts/calinmat's_house_arcade.gd" id="7_uk5oe"]
+[ext_resource type="PackedScene" uid="uid://bdag4ja6vs7ql" path="res://Pause Menu/Scenes/pause_menu.tscn" id="8_sq3nv"]
+[ext_resource type="AudioStream" uid="uid://up2ctxj78ghj" path="res://Arcade/Music/background.mp3" id="9_h8afk"]
 
 [sub_resource type="GDScript" id="GDScript_v2gga"]
 script/source = "extends Control
 "
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjcbp"]
-texture = ExtResource("1_s7h14")
+texture = ExtResource("1_sq3nv")
 modulate_color = Color(0.61960787, 0.61960787, 0.61960787, 1)
 
 [node name="arcade" type="Control"]
@@ -71,4 +74,11 @@ scale = Vector2(0.7474297, 0.6498853)
 pivot_offset = Vector2(220, 341)
 texture_normal = ExtResource("6_lla1w")
 stretch_mode = 0
-script = ExtResource("5_4eg35")
+script = ExtResource("7_uk5oe")
+
+[node name="PauseMenu" parent="." instance=ExtResource("8_sq3nv")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_h8afk")
+volume_db = -15.146
+autoplay = true

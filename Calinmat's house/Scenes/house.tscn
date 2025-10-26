@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw3kyg2yttwyh"]
+[gd_scene load_steps=7 format=3 uid="uid://dw3kyg2yttwyh"]
 
 [ext_resource type="Texture2D" uid="uid://bxw66g5ig4l1s" path="res://Calinmat's house/PNGs/Background.jpg" id="1_1es5f"]
 [ext_resource type="Script" uid="uid://qd2rh6rrtvut" path="res://Calinmat's house/Scripts/house.gd" id="1_flq0l"]
 [ext_resource type="PackedScene" uid="uid://cuk00oh36bswf" path="res://Calinmat's house/Scenes/monster.tscn" id="2_gwf2p"]
+[ext_resource type="PackedScene" uid="uid://bdag4ja6vs7ql" path="res://Pause Menu/Scenes/pause_menu.tscn" id="4_45a2a"]
+[ext_resource type="AudioStream" uid="uid://c5745td6r8dhv" path="res://Calinmat's house/Music/calinmat.mp3" id="5_sm6w4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flq0l"]
 texture = ExtResource("1_1es5f")
@@ -30,3 +32,10 @@ offset_top = 552.0
 offset_right = 1056.0
 offset_bottom = 575.0
 text = "\"Turns: 0\""
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_45a2a")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_sm6w4")
+volume_db = -15.146
+autoplay = true

@@ -6,4 +6,4 @@ func _ready():
 
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://Pizzeria/Scenes/pizzeria.tscn")
+	get_tree().change_scene_to_file("res://Calinmat's house/Scenes/house.tscn")

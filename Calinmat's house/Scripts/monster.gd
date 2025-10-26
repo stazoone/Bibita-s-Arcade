@@ -1,24 +1,56 @@
-extends Button
+extends TextureButton
 
-@export var monster_id: int
-var is_flipped = false
+@export var monster_id: int = -1
+@export var back_texture: Texture2D = load("res://Calinmat's house/PNGs/back.png")
+
+var front_texture: Texture2D
+var is_flipped: bool = false
+
 signal flipped(card)
 
 func _ready():
-	$Front.texture = load("res://Calinmat's house/PNGs/front_%d.png" % monster_id)
-	show_back()  
-
-func show_front():
-	$Front.show()
-	$Back.hide()
-	is_flipped = true
-
-func show_back():
-	$Front.hide()
-	$Back.show()
-	is_flipped = false
+	# If no monster_id set manually, pick a random one (0–7)
+	if monster_id == -1:
+		monster_id = randi_range(0, 7)
+	
+	# Load the front texture based on random monster_id
+	var front_path = "res://Calinmat's house/PNGs/front_%d.png" % monster_id
+	front_texture = load(front_path)
+	
+	# Verify the texture loaded
+	if front_texture == null:
+		push_error("Failed to load texture: " + front_path)
+	
+	# Configure texture stretching
+	stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+	ignore_texture_size = true
+	custom_minimum_size = Vector2(100, 100)
+	
+	# Connect the pressed signal if not already connected
+	if not pressed.is_connected(_on_pressed):
+		pressed.connect(_on_pressed)
+	
+	# Start showing the back
+	_show_back()
 
 func _on_pressed():
-	if not is_flipped:
-		show_front()
+	# Only flip if we haven't flipped yet and button is not disabled
+	if not is_flipped and not disabled:
+		is_flipped = true
+		_show_front()
 		emit_signal("flipped", self)
+
+func flip_back():
+	# Public method to flip the card back (resets state)
+	is_flipped = false
+	_show_back()
+
+func _show_front():
+	texture_normal = front_texture
+	texture_hover = front_texture
+	texture_pressed = front_texture
+
+func _show_back():
+	texture_normal = back_texture
+	texture_hover = back_texture
+	texture_pressed = back_texture

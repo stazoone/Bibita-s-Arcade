@@ -4,18 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://cwknqxsywssft" path="res://Calinmat's house/PNGs/back.png" id="2_kv3gv"]
 [ext_resource type="Texture2D" uid="uid://djebh6xntwl0f" path="res://Calinmat's house/PNGs/front_0.png" id="2_w1a06"]
 
-[node name="Monster" type="Button"]
-custom_minimum_size = Vector2(30, 30)
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Monster" type="TextureButton"]
+custom_minimum_size = Vector2(10, 10)
+anchors_preset = -1
+anchor_left = 0.86200005
+anchor_top = 0.88900006
+anchor_right = 0.86200005
+anchor_bottom = 0.88900006
+offset_left = -1079.3601
+offset_top = -624.08
+offset_right = -1005.34204
+offset_bottom = -574.90216
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1904672, 1.4101822)
+stretch_mode = 0
 script = ExtResource("1_ga1aa")
 
-[node name="Front" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_w1a06")
+[node name="Node2D" type="Control" parent="."]
+anchors_preset = 0
 
-[node name="Back" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+[node name="Back" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(189.03003, 76.088394)
+scale = Vector2(0.06620179, 0.0567984)
 texture = ExtResource("2_kv3gv")
+
+[node name="Front" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(189.03006, 76.08841)
+scale = Vector2(0.066899106, 0.05960036)
+texture = ExtResource("2_w1a06")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

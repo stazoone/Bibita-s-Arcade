@@ -1,11 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://0hw1h1icwftr"]
+[gd_scene load_steps=12 format=3 uid="uid://0hw1h1icwftr"]
 
 [ext_resource type="Script" uid="uid://br7p6a8q2tppl" path="res://Main Menu/main_menu.gd" id="1_8ketd"]
 [ext_resource type="Texture2D" uid="uid://lu0e3558jvqt" path="res://Main Menu/PNGs/meniu.png" id="1_nb5b5"]
 [ext_resource type="Texture2D" uid="uid://nty0iqgqyoyu" path="res://Main Menu/PNGs/logo.png" id="2_8ketd"]
 [ext_resource type="Texture2D" uid="uid://bujwy4l7o7qrf" path="res://Main Menu/PNGs/play.png" id="4_npuod"]
-[ext_resource type="Texture2D" uid="uid://cves2l1dl7nsu" path="res://Main Menu/PNGs/settings.png" id="5_ft8e8"]
 [ext_resource type="Texture2D" uid="uid://cl7k6h02toy1p" path="res://Main Menu/PNGs/exit.png" id="6_2ekim"]
+[ext_resource type="AudioStream" uid="uid://o4fty4000itl" path="res://Main Menu/Music/background.mp3" id="6_npuod"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_15lat"]
 texture = ExtResource("1_nb5b5")
@@ -17,13 +17,6 @@ texture = ExtResource("4_npuod")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_npuod"]
 texture = ExtResource("4_npuod")
 modulate_color = Color(0.43624362, 0.4273739, 0.40336967, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6svo"]
-texture = ExtResource("5_ft8e8")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ft8e8"]
-texture = ExtResource("5_ft8e8")
-modulate_color = Color(0.43529412, 0.42745098, 0.40392157, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tgyvh"]
 texture = ExtResource("6_2ekim")
@@ -89,13 +82,6 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_hd3la")
 theme_override_styles/hover = SubResource("StyleBoxTexture_npuod")
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxTexture_b6svo")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ft8e8")
-
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -103,6 +89,10 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_tgyvh")
 theme_override_styles/hover = SubResource("StyleBoxTexture_2ekim")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_npuod")
+volume_db = -15.266
+autoplay = true
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
