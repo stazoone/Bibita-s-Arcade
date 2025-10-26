@@ -1,6 +1,5 @@
 extends Node2D
 
-# --- Nodes ---
 @onready var player_pizza_sprite: TextureRect = $CanvasLayer/PlayerPizza
 @onready var target_pizza_sprite: TextureRect = $CanvasLayer/TargetPizza
 @onready var score_label: Label = $CanvasLayer/ScoreLabel
@@ -12,7 +11,6 @@ extends Node2D
 @onready var button_submit: TextureButton = $CanvasLayer/ButtonSubmit
 @onready var button_trash: TextureButton = $CanvasLayer/ButtonTrash
 
-# --- Data ---
 var current_ingredients: Array[String] = []
 var current_target: Array = []
 var score: int = 0
@@ -49,13 +47,11 @@ const PIZZA_TEXTURES = {
 }
 
 
-# --- READY ---
 func _ready():
 	reset_player_pizza()
 	set_random_target_pizza()
 	update_score_label()
 
-	# Connect buttons
 	button_cheese.pressed.connect(func(): add_ingredient("cheese"))
 	button_rucola.pressed.connect(func(): add_ingredient("rucola"))
 	button_pepperoni.pressed.connect(func(): add_ingredient("pepperoni"))
@@ -79,8 +75,6 @@ func update_pizza_texture():
 	var key = "+".join(sorted_ingredients)
 	if key in PIZZA_TEXTURES:
 		player_pizza_sprite.texture = PIZZA_TEXTURES[key]
-	else:
-		print("⚠️ No texture for:", key)
 
 
 func reset_player_pizza():
@@ -95,8 +89,6 @@ func set_random_target_pizza():
 	var key = "+".join(sorted_target)
 	if key in PIZZA_TEXTURES:
 		target_pizza_sprite.texture = PIZZA_TEXTURES[key]
-	else:
-		print("⚠️ Missing target texture for:", key)
 
 
 func _on_submit_pressed():
