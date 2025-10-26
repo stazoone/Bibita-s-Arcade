@@ -9,24 +9,19 @@ var is_flipped: bool = false
 signal flipped(card)
 
 func _ready():
-	# If no monster_id set manually, pick a random one (0–7)
 	if monster_id == -1:
 		monster_id = randi_range(0, 7)
 	
-	# Load the front texture based on random monster_id
 	var front_path = "res://Calinmat's house/PNGs/front_%d.png" % monster_id
 	front_texture = load(front_path)
 	
-	# Verify the texture loaded
 	if front_texture == null:
 		push_error("Failed to load texture: " + front_path)
 	
-	# Configure texture stretching
 	stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 	ignore_texture_size = true
 	custom_minimum_size = Vector2(100, 100)
 	
-	# Connect the pressed signal if not already connected
 	if not pressed.is_connected(_on_pressed):
 		pressed.connect(_on_pressed)
 	
@@ -34,14 +29,12 @@ func _ready():
 	_show_back()
 
 func _on_pressed():
-	# Only flip if we haven't flipped yet and button is not disabled
 	if not is_flipped and not disabled:
 		is_flipped = true
 		_show_front()
 		emit_signal("flipped", self)
 
 func flip_back():
-	# Public method to flip the card back (resets state)
 	is_flipped = false
 	_show_back()
 
