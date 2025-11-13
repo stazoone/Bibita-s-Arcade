@@ -4,4 +4,5 @@
    This is my first ever game, and my first time using Godot as well. This took me around 30 hours + several more for the (awful) assets used. Can't upload the executables for Windows/Linux as they are too big but below is a link to the itch.io page of the game. Using all the files in this repository, one can also create executables in the Godot Engine itself.
 
 ## Link for playable web version
+
   Link for Web Version: https://stazoone.itch.io/bibitas-arcade
